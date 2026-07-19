@@ -1,56 +1,51 @@
-
 # AI-Driven Framework for Optimizing Renewable Energy
 
 An IoT-enabled smart solar tracking and energy prediction system. This project combines dual-axis sunlight tracking, live IoT monitoring, battery storage tracking, and a machine learning model to maximize energy generation and forecast electricity demand.
 
-## 🚀 Features
+## Features
+- Automatic Solar Tracking: Orients the solar panel toward maximum sunlight using LDR sensors and a servo motor.
+- IoT Dashboard: Real-time monitoring of generated power and battery status.
+- AI Energy Prediction: Forecasts electricity consumption using a Random Forest Regression model.
+- Hardware Integrated: Built using an ESP32 controller, sensors, and OLED display.
 
-* **Automatic Solar Tracking:** Orients the solar panel toward maximum sunlight using LDR sensors and a servo motor.
-* **IoT Dashboard:** Real-time monitoring of generated power and battery status.
-* **AI Energy Prediction:** Forecasts electricity consumption using a Random Forest Regression model.
-* **Hardware Integrated:** Built using an ESP32 controller, sensors, and OLED display.
-
-## 🛠️ System Architecture & Workflow
-
-1. **Hardware Layer:** Dual LDR sensors detect sunlight intensity $\rightarrow$ ESP32 processes data $\rightarrow$ SG90 Servo motor rotates the panel.
-2. **Data Layer:** The ACS712 current sensor measures generated power, which is stored in a 18650 Li-ion battery via a TP4056 module.
-3. **IoT Layer:** ESP32 uploads live data over Wi-Fi to the dashboard.
-4. **ML Layer:** Web application backend utilizes a Random Forest model to predict electricity consumption based on environmental factors.
+## System Architecture and Workflow
+1. Hardware Layer: Dual LDR sensors detect sunlight intensity, the ESP32 processes the data, and the SG90 Servo motor rotates the panel.
+2. Data Layer: The ACS712 current sensor measures generated power, which is stored in a 18650 Li-ion battery via a TP4056 module.
+3. IoT Layer: The ESP32 uploads live data over Wi-Fi to the dashboard.
+4. ML Layer: The web application backend utilizes a Random Forest model to predict electricity consumption based on environmental factors.
 
 ---
 
-## 📦 Repository Structure
-
-```bash
+## Repository Structure
+```text
 ├── templates/
 │   └── dashboard.html   # Frontend web interface for analytics and tracking
 ├── app.py               # Flask backend handling ML inference and web routes
 ├── README.md            # Project documentation
 └── .gitignore           # Ignores large model files
 
-```
 
-> **⚠️ Note on Machine Learning Model (`.pkl`):**
-> The trained Random Forest model file (`model.pkl`) is omitted from this repository due to GitHub's file size limitations. To run the backend successfully, you must train your model locally or download the file from [Insert your external Google Drive / Dropbox / OneDrive Link here] and place it in the root directory.
 
----
-
-## 📊 Machine Learning Model Details
-
-* **Algorithm Used:** Random Forest Regression (Ensemble of Decision Trees)
-* **Model Performance:** Achieved ~97.7% prediction accuracy ($R^2$ Score)
-* **Input Parameters:** Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
-* **Output:** Electricity Consumption Prediction (Watts)
+```text
+> **Note on Machine Learning Model (.pkl):** 
+> The pre-trained Random Forest model file is omitted from this GitHub repository due to file size limitations. You can download the trained model file directly from [(https://drive.google.com/file/d/15_kFgZkK4JdlXpHzt2OuL2wffGcV3I7v/view?usp=drive_link)]. Once downloaded, place the file in the root directory of this project before running the application.
 
 ---
 
-## 💻 Prerequisites & Setup
+## Machine Learning Model Details
+- Algorithm Used: Random Forest Regression (Ensemble of Decision Trees)
+- Model Performance: Achieved approximately 97.7% prediction accuracy (R-squared Score)
+- Input Parameters: Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
+- Output: Electricity Consumption Prediction in Watts
+
+---
+
+## Prerequisites and Setup
 
 ### 1. Clone the repository
-
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone [https://github.com/aNkAn18a/final-year-project.git](https://github.com/aNkAn18a/final-year-project.git)
+cd final-year-project
 
 ```
 
@@ -65,7 +60,7 @@ pip install flask scikit-learn pandas numpy
 
 ### 3. Add the Model File
 
-Place your trained `model.pkl` file directly into the root directory of this project.
+Download the model from the link provided in the note above, and place the file directly into the root directory of this project.
 
 ### 4. Run the Application
 
@@ -76,11 +71,11 @@ python app.py
 
 ```
 
-Open your browser and navigate to `[http://127.0.0.1:5000/](http://127.0.0.1:5000/)` to view the dashboard.
+Open your browser and navigate to http://127.0.0.1:5000/ to view the dashboard.
 
 ---
 
-## 🔧 Hardware Components Used
+## Hardware Components Used
 
 * ESP32 Development Board
 * Mini Solar Panel
@@ -88,17 +83,21 @@ Open your browser and navigate to `[http://127.0.0.1:5000/](http://127.0.0.1:500
 * Dual LDR Sensors
 * ACS712 Current Sensor
 * OLED Display
-* TP4056 Charging Module & 18650 Li-ion Battery
+* TP4056 Charging Module and 18650 Li-ion Battery
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 * Soham Chatterjee
 * Anirban Das
 * Ankan Hazra
 * Soumyadeep Dey
 
-**Institution**: St. Thomas' College of Engineering & Technology
+**Institution:** St. Thomas' College of Engineering & Technology
 
-**Department**: Department of Computer Science & Engineering
+**Department:** Department of Computer Science & Engineering
+
+```
+
+```
