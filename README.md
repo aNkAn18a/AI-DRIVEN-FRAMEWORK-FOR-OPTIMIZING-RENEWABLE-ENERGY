@@ -86,7 +86,7 @@ char pass[] = "YOUR_WIFI_PASSWORD";
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/aNkAn18a/AI-DRIVEN-FRAMEWORK-FOR-OPTIMIZING-RENEWABLE-ENERGY.git](https://github.com/aNkAn18a/AI-DRIVEN-FRAMEWORK-FOR-OPTIMIZING-RENEWABLE-ENERGY.git)
+git clone (https://github.com/aNkAn18a/AI-DRIVEN-FRAMEWORK-FOR-OPTIMIZING-RENEWABLE-ENERGY.git)
 cd AI-DRIVEN-FRAMEWORK-FOR-OPTIMIZING-RENEWABLE-ENERGY
 
 ```
