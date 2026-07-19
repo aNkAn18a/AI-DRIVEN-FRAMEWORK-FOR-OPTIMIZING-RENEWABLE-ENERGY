@@ -17,6 +17,13 @@ An IoT-enabled smart solar tracking and energy prediction system. This project c
 ---
 
 ## Repository Structure
+
+I see what is happening in the screenshot. The code block for the "Repository Structure" was never closed, so everything below line 20 is being swallowed inside that text box.
+
+Look at line 20 in your image: you have ````text`. You just need to close it with three backticks ````` on line 27 right before the next section starts.
+
+To fix it completely, delete everything from line 20 down to the bottom of your file, and replace it with this:
+
 ```text
 ├── templates/
 │   └── dashboard.html   # Frontend web interface for analytics and tracking
@@ -24,35 +31,35 @@ An IoT-enabled smart solar tracking and energy prediction system. This project c
 ├── README.md            # Project documentation
 └── .gitignore           # Ignores large model files
 
-
-Note on Machine Learning Model (.pkl):
-The pre-trained Random Forest model file is omitted from this GitHub repository due to file size limitations. You can download the trained model file directly from https://drive.google.com/file/d/15_kFgZkK4JdlXpHzt2OuL2wffGcV3I7v/view?usp=drive_link. Once downloaded, place the file in the root directory of this project before running the application.
-
-Machine Learning Model Details
-Algorithm Used: Random Forest Regression (Ensemble of Decision Trees)
-
-Model Performance: Achieved approximately 97.7% prediction accuracy (R-squared Score)
-
-Input Parameters: Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
-
-Output: Electricity Consumption Prediction in Watts
-
-Prerequisites and Setup
-1. Clone the repository
-Bash
-git clone https://github.com/aNkAn18a/final-year-project.git
-cd final-year-project
-
 ```
+
+---
+
+> **Note on Machine Learning Model (.pkl):**
+> The pre-trained Random Forest model file is omitted from this GitHub repository due to file size limitations. You can download the trained model file directly from [(https://drive.google.com/file/d/15_kFgZkK4JdlXpHzt2OuL2wffGcV3I7v/view?usp=drive_link)]. Once downloaded, place the file in the root directory of this project before running the application.
+
+---
+
+## Machine Learning Model Details
+
+* Algorithm Used: Random Forest Regression (Ensemble of Decision Trees)
+* Model Performance: Achieved approximately 97.7% prediction accuracy (R-squared Score)
+* Input Parameters: Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
+* Output: Electricity Consumption Prediction in Watts
+
+---
+
+## Prerequisites and Setup
+
+### 1. Clone the repository
+
+git clone [https://github.com/aNkAn18a/final-year-project.git](https://github.com/aNkAn18a/final-year-project.git)
+cd final-year-project
 
 ### 2. Install Dependencies
 
 Ensure you have Python installed, then install the required libraries:
-
-```bash
 pip install flask scikit-learn pandas numpy
-
-```
 
 ### 3. Add the Model File
 
@@ -61,13 +68,9 @@ Download the model from the link provided in the note above, and place the file 
 ### 4. Run the Application
 
 Start the Flask development server:
-
-```bash
 python app.py
 
-```
-
-Open your browser and navigate to http://127.0.0.1:5000/ to view the dashboard.
+Open your browser and navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to view the dashboard.
 
 ---
 
@@ -93,7 +96,3 @@ Open your browser and navigate to http://127.0.0.1:5000/ to view the dashboard.
 **Institution:** St. Thomas' College of Engineering & Technology
 
 **Department:** Department of Computer Science & Engineering
-
-```
-
-```
