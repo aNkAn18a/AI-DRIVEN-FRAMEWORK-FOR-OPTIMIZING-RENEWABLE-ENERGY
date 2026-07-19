@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Framework for Optimizing Renewable Energy</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+
+    <!-- Header Banner -->
+    <header class="bg-slate-800 border-b border-slate-700 py-6 px-4 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left flex-1">
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-wider text-emerald-400 uppercase">
+                    AI Driven Framework for Optimizing Renewable Energy
+                </h1>
+                <p class="text-slate-400 mt-1 text-sm">
+                    Real-Time Generation Monitoring & Clean Prediction Analysis Engine
+                </p>
+            </div>
+            <div>
+                <a href="/api/export-csv/" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-5 rounded-xl shadow-md transition-all flex items-center gap-2 text-sm">
+                    <span>📥</span> Export CSV Dataset
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout Grid split between Data Engine (Left) and SDG Sidepanel (Right) -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- LEFT TWO COLUMNS: Plots & Data Tables Layer -->
+        <div class="lg:col-span-2 space-y-6">
+            
+            <!-- SECTION 1: AI Prediction vs Actual Energy -->
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-md">
+                <h2 class="text-xl font-bold text-indigo-400 mb-4 flex items-center gap-2 border-b border-slate-700 pb-3">
+                    <span>📊</span> AI Prediction vs Actual Energy
+                </h2>
+                <div class="relative w-full bg-slate-900/50 p-2 rounded-xl border border-slate-700 h-72">
+                    <canvas id="predictionVsActualChart"></canvas>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Live Energy vs Time -->
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-md">
+                <h2 class="text-xl font-bold text-teal-400 mb-4 flex items-center gap-2 border-b border-slate-700 pb-3">
+                    <span>⚡</span> Live Energy vs Time
+                </h2>
+                <div class="relative w-full bg-slate-900/50 p-2 rounded-xl border border-slate-700 h-72">
+                    <canvas id="liveEnergyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Production Achieved Table -->
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-md">
+                <h2 class="text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
+                    <span>📊</span> Production Achieved
+                </h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-700 max-h-80 overflow-y-auto custom-scrollbar bg-slate-900/30">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-700 text-slate-200 sticky top-0 shadow z-10 text-center">
+                            <tr class="whitespace-nowrap">
+                                <th class="p-2.5 border-r border-slate-600/30">Day (1-31)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Month (1-12)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Day of Week</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Weekend</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Hour (0-23)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Temp (°C)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Humidity (%)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Wind Speed (m/s)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Pressure (hPa)</th>
+                                <th class="p-2.5 border-r border-slate-600/30">Rainfall (mm)</th>
+                                <th class="p-2.5">Solar Rad.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customTableBody" class="divide-y divide-slate-700/50 text-center whitespace-nowrap"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT ONE COLUMN: SDG Mapping Info Panel -->
+        <div class="lg:col-span-1">
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-md sticky top-6 space-y-4">
+                <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2 border-b border-slate-700 pb-3 uppercase tracking-wider">
+                    <span>🎯</span> SDG Mapping
+                </h2>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    This framework aligns directly with the United Nations Sustainable Development Goals (SDGs) to drive cleaner infrastructure and smart energy automation.
+                </p>
+                
+                <!-- SDG Cards Container -->
+                <div class="space-y-3.5 max-h-[73vh] overflow-y-auto pr-1 custom-scrollbar">
+                    
+                    <!-- SDG 7 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 7</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Affordable and Clean Energy</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Optimizes solar energy generation, energy storage, and efficient utilization of renewable energy resources.</p>
+                    </div>
+
+                    <!-- SDG 9 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 9</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Industry, Innovation and Infrastructure</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Implements AI, Machine Learning, IoT, and smart energy management technologies.</p>
+                    </div>
+
+                    <!-- SDG 11 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 11</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Sustainable Cities and Communities</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Supports sustainable energy solutions, decentralized renewable systems, and smart-grid applications.</p>
+                    </div>
+
+                    <!-- SDG 12 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 12</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Responsible Consumption and Production</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Enables efficient energy consumption through AI-based forecasting and reduces energy wastage.</p>
+                    </div>
+
+                    <!-- SDG 13 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 13</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Climate Action</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Promotes clean energy adoption and contributes to environmentally sustainable solutions.</p>
+                    </div>
+
+                    <!-- SDG 17 -->
+                    <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 hover:border-emerald-500/40 transition-colors">
+                        <div class="flex flex-col items-start gap-1 mb-2">
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">SDG 17</span>
+                            <span class="text-xs font-semibold text-slate-200 break-words whitespace-normal">Partnerships for the Goals</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-normal">Integrates renewable energy, IoT, AI, and data science for sustainable development.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let liveEnergyChart, predictionVsActualChart;
+
+        // Scale factors logic configured for a 5V small panel benchmark
+        const scaleToHardwareWatts = (val) => roundToTwo(val / 200);
+        const roundToTwo = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
+
+        function updateDashboard() {
+            const cacheBusterUrl = '/api/analytics/?t=' + new Date().getTime();
+            fetch(cacheBusterUrl)
+                .then(res => res.json())
+                .then(payload => {
+                    buildTableAndCharts(payload.dataset);
+                })
+                .catch(err => console.error("Data fetch error:", err));
+        }
+
+        function buildTableAndCharts(dataset) {
+            const tableBody = document.getElementById('customTableBody');
+            tableBody.innerHTML = '';
+            
+            dataset.forEach(row => {
+                const dayVal = row.day !== undefined ? row.day : 1;
+                const monthVal = row.month !== undefined ? row.month : 1;
+                const weekdayVal = row.weekday !== undefined ? row.weekday : 0;
+                const isWeekend = row.is_weekend !== undefined ? row.is_weekend : 0;
+                
+                let hourVal = 0;
+                if (row.hour !== undefined) hourVal = row.hour;
+                else if (row.hour_label) hourVal = parseInt(row.hour_label.split(':')[0]);
+
+                const temp = row.temp !== undefined ? row.temp : 0;
+                const humidity = row.humidity !== undefined ? row.humidity : 0;
+                const windSpeed = row.wind_speed !== undefined ? row.wind_speed : 0;
+                const pressure = row.pressure !== undefined ? row.pressure : 0;
+                const rainfall = row.rainfall !== undefined ? row.rainfall : 0;
+                const solarRad = row.solar_rad !== undefined ? row.solar_rad : 0;
+                
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-700/20 transition-colors text-slate-300 font-medium";
+                tr.innerHTML = `
+                    <td class="p-2.5 border-r border-slate-700/40">${dayVal}</td>
+                    <td class="p-2.5 border-r border-slate-700/40">${monthVal}</td>
+                    <td class="p-2.5 border-r border-slate-700/40">${weekdayVal}</td>
+                    <td class="p-2.5 text-purple-300 border-r border-slate-700/40">${isWeekend}</td>
+                    <td class="p-2.5 border-r border-slate-700/40">${hourVal}</td>
+                    <td class="p-2.5 text-orange-300 border-r border-slate-700/40">${temp}</td>
+                    <td class="p-2.5 text-blue-300 border-r border-slate-700/40">${humidity}</td>
+                    <td class="p-2.5 text-sky-300 border-r border-slate-700/40">${windSpeed}</td>
+                    <td class="p-2.5 text-emerald-300 border-r border-slate-700/40">${pressure}</td>
+                    <td class="p-2.5 text-indigo-300 border-r border-slate-700/40">${rainfall}</td>
+                    <td class="p-2.5 text-yellow-400">${solarRad}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            const baseOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                plugins: { legend: { labels: { color: '#94a3b8' } } },
+                scales: {
+                    x: { grid: { color: 'rgba(71, 85, 105, 0.2)' }, ticks: { color: '#94a3b8' } },
+                    y: { 
+                        grid: { color: 'rgba(71, 85, 105, 0.2)' }, 
+                        ticks: { color: '#94a3b8' },
+                        title: { display: true, text: 'Power (Watts)', color: '#94a3b8' },
+                        min: 0,
+                        max: 12
+                    }
+                }
+            };
+
+            if (!liveEnergyChart) {
+                liveEnergyChart = new Chart(document.getElementById('liveEnergyChart'), {
+                    type: 'line',
+                    data: {
+                        labels: dataset.map(r => r.hour_label),
+                        datasets: [{
+                            label: 'Live Solar Generation (W)',
+                            data: dataset.map(r => scaleToHardwareWatts(r.greenTotal)),
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            fill: true,
+                            tension: 0.2,
+                            pointRadius: 2
+                        }]
+                    },
+                    options: baseOptions
+                });
+            } else {
+                liveEnergyChart.data.datasets[0].data = dataset.map(r => scaleToHardwareWatts(r.greenTotal));
+                liveEnergyChart.update();
+            }
+
+            if (!predictionVsActualChart) {
+                predictionVsActualChart = new Chart(document.getElementById('predictionVsActualChart'), {
+                    type: 'line',
+                    data: {
+                        labels: dataset.map(r => r.hour_label),
+                        datasets: [
+                            { label: 'AI Predicted Requirement (W)', data: dataset.map(r => scaleToHardwareWatts(r.demand)), borderColor: '#f59e0b', tension: 0.2, pointRadius: 2, fill: false },
+                            { label: 'Actual Solar Production (W)', data: dataset.map(r => scaleToHardwareWatts(r.greenTotal)), borderColor: '#38bdf8', tension: 0.2, pointRadius: 2, fill: false }
+                        ]
+                    },
+                    options: baseOptions
+                });
+            } else {
+                predictionVsActualChart.data.datasets[0].data = dataset.map(r => scaleToHardwareWatts(r.demand));
+                predictionVsActualChart.data.datasets[1].data = dataset.map(r => scaleToHardwareWatts(r.greenTotal));
+                predictionVsActualChart.update();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDashboard();
+            setInterval(updateDashboard, 3000);
+        });
+    </script>
+
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 9999px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+</body>
+</html>
