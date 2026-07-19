@@ -25,26 +25,22 @@ An IoT-enabled smart solar tracking and energy prediction system. This project c
 └── .gitignore           # Ignores large model files
 
 
+Note on Machine Learning Model (.pkl):
+The pre-trained Random Forest model file is omitted from this GitHub repository due to file size limitations. You can download the trained model file directly from https://drive.google.com/file/d/15_kFgZkK4JdlXpHzt2OuL2wffGcV3I7v/view?usp=drive_link. Once downloaded, place the file in the root directory of this project before running the application.
 
-```text
-> **Note on Machine Learning Model (.pkl):** 
-> The pre-trained Random Forest model file is omitted from this GitHub repository due to file size limitations. You can download the trained model file directly from [(https://drive.google.com/file/d/15_kFgZkK4JdlXpHzt2OuL2wffGcV3I7v/view?usp=drive_link)]. Once downloaded, place the file in the root directory of this project before running the application.
+Machine Learning Model Details
+Algorithm Used: Random Forest Regression (Ensemble of Decision Trees)
 
----
+Model Performance: Achieved approximately 97.7% prediction accuracy (R-squared Score)
 
-## Machine Learning Model Details
-- Algorithm Used: Random Forest Regression (Ensemble of Decision Trees)
-- Model Performance: Achieved approximately 97.7% prediction accuracy (R-squared Score)
-- Input Parameters: Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
-- Output: Electricity Consumption Prediction in Watts
+Input Parameters: Temperature, Humidity, Wind Speed, Pressure, Rainfall, Solar Radiation, Hour, Day, Month, Weekend.
 
----
+Output: Electricity Consumption Prediction in Watts
 
-## Prerequisites and Setup
-
-### 1. Clone the repository
-```bash
-git clone [https://github.com/aNkAn18a/final-year-project.git](https://github.com/aNkAn18a/final-year-project.git)
+Prerequisites and Setup
+1. Clone the repository
+Bash
+git clone https://github.com/aNkAn18a/final-year-project.git
 cd final-year-project
 
 ```
